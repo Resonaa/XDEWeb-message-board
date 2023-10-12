@@ -3,11 +3,11 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "cross-env DATABASE_URL=\"file:./data.db?connection_limit=1\" PORT=6590 remix dev",
+    "dev": "cross-env PORT=6590 remix dev",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "migrate": "npx prisma migrate dev",
     "setup": "prisma generate && prisma migrate deploy && prisma db seed",
-    "start": "cross-env NODE_ENV=production DATABASE_URL=\"file:./data.db?connection_limit=1\" PORT=6590 remix-serve build/index.js",
+    "start": "cross-env NODE_ENV=production PORT=6590 remix-serve build/index.js",
     "typecheck": "tsc -b",
     "postinstall": "patch-package",
     "format": "prettier --write . && npm run lint -- --fix"
