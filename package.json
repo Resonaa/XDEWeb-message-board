@@ -79,13 +79,14 @@
     "patch-package": "latest",
     "prettier": "latest",
     "prettier-plugin-prisma": "latest",
-    "prisma": "latest"
+    "prisma": "latest",
+    "ts-node": "latest"
   },
   "engines": {
     "node": ">=18"
   },
   "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "npx ts-node prisma/seed.ts"
   },
   "optionalDependencies": {
     "bufferutil": "latest",
