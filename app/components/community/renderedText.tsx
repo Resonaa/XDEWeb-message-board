@@ -3,7 +3,6 @@ import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
-import remarkMath from "remark-math";
 
 const renderer = ChakraUIRenderer();
 
@@ -18,7 +17,7 @@ export default function RenderedText<T extends RenderedTextProps>({
   return (
     <ReactMarkdown
       components={renderer}
-      remarkPlugins={[remarkGfm, remarkMath]}
+      remarkPlugins={[remarkGfm]}
       rehypePlugins={[
         [rehypeKatex, { output: "html", throwOnError: false }],
         [rehypeHighlight, { ignoreMissing: true }]
