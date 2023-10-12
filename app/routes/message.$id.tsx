@@ -1,6 +1,6 @@
 import { Divider, VStack } from "@chakra-ui/react";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
+import { ActionFunctionArgs, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
 import AddMessage from "~/components/community/addMessage";
@@ -8,9 +8,9 @@ import Message from "~/components/community/message";
 import Messages from "~/components/community/messages";
 import Layout from "~/components/layout/layout";
 import { getT } from "~/i18next.server";
-import { getMessage, getMessages } from "~/models/message.server";
+import { createMessage, getMessage, getMessages } from "~/models/message.server";
 import { badRequest, notFound } from "~/reponses.server";
-import { validateGetMessageParams } from "~/validators/message.server";
+import { validateAddMessageFormData, validateGetMessageParams } from "~/validators/message.server";
 
 export async function loader({ params, request }: LoaderFunctionArgs) {
   const t = await getT(request);
@@ -38,6 +38,19 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
 export const meta: MetaFunction<typeof loader> = ({ data }) => [
   { title: data?.title }
 ];
+
+export async function action({ request }: ActionFunctionArgs) {
+  const data = await request.formData();
+  const res = validateAddMessageFormData(data);
+
+  if (res.success) {
+    const { content } = res.data;
+
+    await createMessage(content);
+  }
+
+  return null;
+}
 
 export default function PostId() {
   const { message, messages } = useLoaderData<typeof loader>();
