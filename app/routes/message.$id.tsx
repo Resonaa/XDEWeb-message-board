@@ -1,6 +1,6 @@
 import { Divider, VStack } from "@chakra-ui/react";
-import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { ActionFunctionArgs, json } from "@remix-run/node";
+import type { LoaderFunctionArgs, MetaFunction , ActionFunctionArgs} from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
 import AddMessage from "~/components/community/addMessage";
@@ -8,9 +8,16 @@ import Message from "~/components/community/message";
 import Messages from "~/components/community/messages";
 import Layout from "~/components/layout/layout";
 import { getT } from "~/i18next.server";
-import { createMessage, getMessage, getMessages } from "~/models/message.server";
+import {
+  createMessage,
+  getMessage,
+  getMessages
+} from "~/models/message.server";
 import { badRequest, notFound } from "~/reponses.server";
-import { validateAddMessageFormData, validateGetMessageParams } from "~/validators/message.server";
+import {
+  validateAddMessageFormData,
+  validateGetMessageParams
+} from "~/validators/message.server";
 
 export async function loader({ params, request }: LoaderFunctionArgs) {
   const t = await getT(request);
