@@ -1,5 +1,5 @@
 import { Divider, VStack } from "@chakra-ui/react";
-import type { LoaderFunctionArgs , MetaFunction } from "@remix-run/node";
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
