@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: 🛠 Setup Database
-        run: npx prisma migrate reset --force
+        run: npm run setup
 
       - name: ⚙️ Build
         run: npm run build
