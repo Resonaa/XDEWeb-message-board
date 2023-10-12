@@ -1,0 +1,9 @@
+node_modules
+
+/.idea
+
+/public/build
+/build
+
+/prisma/data.db
+/prisma/data.db-journal

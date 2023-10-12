@@ -1,0 +1,31 @@
+{
+  "lang": {
+    "zh": "中文",
+    "en": "English"
+  },
+  "title": "网络社留言墙",
+  "community": {
+    "edit": "编辑",
+    "preview": "预览",
+    "add-message": "留言",
+    "close": "关闭",
+    "second": "秒",
+    "minute": "分钟",
+    "hour": "小时",
+    "day": "天",
+    "month": "月",
+    "years": "年",
+    "ago": "前",
+    "view_one": "浏览",
+    "view_other": "浏览",
+    "load-more": "点击查看更多...",
+    "placeholder": "输入留言内容，支持 Markdown 与 LaTeX 公式"
+  },
+  "utils": {
+    "plurals_one": "",
+    "plurals_other": ""
+  },
+  "errors": {
+    "title": "错误"
+  }
+}

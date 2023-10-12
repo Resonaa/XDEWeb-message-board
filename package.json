@@ -1,0 +1,94 @@
+{
+  "name": "xdeweb-message-board",
+  "sideEffects": false,
+  "scripts": {
+    "build": "remix build",
+    "dev": "cross-env DATABASE_URL=\"file:./data.db?connection_limit=1\" PORT=6590 remix dev",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
+    "migrate": "npx prisma migrate dev",
+    "setup": "prisma generate && prisma migrate deploy && prisma db seed",
+    "start": "cross-env NODE_ENV=production DATABASE_URL=\"file:./data.db?connection_limit=1\" PORT=6590 remix-serve build/index.js",
+    "typecheck": "tsc -b",
+    "postinstall": "patch-package",
+    "format": "prettier --write . && npm run lint -- --fix"
+  },
+  "eslintIgnore": [
+    "/build",
+    "/node_modules",
+    "/public/build",
+    "**/*.js"
+  ],
+  "prettier": {
+    "trailingComma": "none",
+    "arrowParens": "avoid",
+    "plugins": [
+      "prettier-plugin-prisma"
+    ]
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "latest",
+    "@chakra-ui/react": "latest",
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@prisma/client": "latest",
+    "@remix-run/node": "latest",
+    "@remix-run/react": "latest",
+    "chakra-ui-markdown-renderer": "latest",
+    "cross-env": "latest",
+    "dayjs": "latest",
+    "framer-motion": "latest",
+    "highlight.js": "latest",
+    "i18next": "latest",
+    "i18next-browser-languagedetector": "latest",
+    "i18next-chained-backend": "latest",
+    "i18next-fs-backend": "latest",
+    "i18next-http-backend": "latest",
+    "i18next-localstorage-backend": "latest",
+    "isbot": "latest",
+    "katex": "latest",
+    "nprogress": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-i18next": "latest",
+    "react-icons": "latest",
+    "react-markdown": "latest",
+    "react-textarea-autosize": "latest",
+    "rehype-highlight": "latest",
+    "rehype-katex": "latest",
+    "remark-gfm": "latest",
+    "remark-math": "latest",
+    "remix-i18next": "latest",
+    "typescript": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "latest",
+    "@remix-run/eslint-config": "latest",
+    "@remix-run/serve": "latest",
+    "@types/eslint": "latest",
+    "@types/katex": "latest",
+    "@types/node": "latest",
+    "@types/nprogress": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-chakra-ui": "latest",
+    "patch-package": "latest",
+    "prettier": "latest",
+    "prettier-plugin-prisma": "latest",
+    "prisma": "latest"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "optionalDependencies": {
+    "bufferutil": "latest",
+    "utf-8-validate": "latest"
+  }
+}

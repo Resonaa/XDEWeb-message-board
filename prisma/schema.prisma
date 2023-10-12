@@ -1,0 +1,17 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Message {
+  id      Int    @id @default(autoincrement())
+  content String
+
+  createdAt DateTime @default(now())
+
+  viewCount Int @default(0)
+}

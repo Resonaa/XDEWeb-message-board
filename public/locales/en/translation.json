@@ -1,0 +1,31 @@
+{
+  "lang": {
+    "zh": "中文",
+    "en": "English"
+  },
+  "title": "XDEWeb Message Board",
+  "community": {
+    "edit": "Edit",
+    "preview": "Preview",
+    "add-message": "Leave a Message",
+    "close": "Close",
+    "second": "second",
+    "minute": "minute",
+    "hour": "hour",
+    "day": "day",
+    "month": "month",
+    "years": "year",
+    "ago": " ago",
+    "view_one": "view",
+    "view_other": "views",
+    "load-more": "Show More...",
+    "placeholder": "Enter message content, Markdown & KaTeX supported"
+  },
+  "utils": {
+    "plurals_one": "",
+    "plurals_other": "s"
+  },
+  "errors": {
+    "title": "Error"
+  }
+}
