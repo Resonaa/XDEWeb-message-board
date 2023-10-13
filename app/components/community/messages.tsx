@@ -27,7 +27,7 @@ export default function Messages({ messages }: { messages: MessageProps[] }) {
   const loader = async (page: number) => {
     const data = await ajax("post", "/api/message/page", { page });
     setExtraMessages(extraMessages => extraMessages.concat(data));
-    return data.length === 20;
+    return data.length === 10;
   };
 
   return (
@@ -35,7 +35,7 @@ export default function Messages({ messages }: { messages: MessageProps[] }) {
       {messages.concat(extraMessages).map(data => (
         <Message key={data.id} linked {...data} />
       ))}
-      {messages.length === 20 && <LoadMore loader={loader} />}
+      {messages.length === 10 && <LoadMore loader={loader} />}
     </VStack>
   );
 }

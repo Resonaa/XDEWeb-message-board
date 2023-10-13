@@ -20,14 +20,14 @@ export async function getMessages(page: number) {
   const maxId = firstMessage?.id ?? 0;
 
   await prisma.message.updateMany({
-    where: { id: { gt: maxId - page * 20 } },
+    where: { id: { gt: maxId - page * 10 } },
     data: { viewCount: { increment: 1 } }
   });
 
   return prisma.message.findMany({
     orderBy: { id: "desc" },
-    skip: (page - 1) * 20,
-    take: 20
+    skip: (page - 1) * 10,
+    take: 10
   });
 }
 
