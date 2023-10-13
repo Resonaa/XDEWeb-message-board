@@ -60,6 +60,7 @@ export default function Editor<T extends EditorProps>({
               placeholder={t("community.placeholder")}
               required
               value={value}
+              variant="filled"
             />
           </AnimatedContent>
         </TabPanel>

@@ -1,4 +1,5 @@
 import { VStack } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 import LoadMore from "./loadMore";
@@ -30,8 +31,24 @@ export default function Messages({ messages }: { messages: MessageProps[] }) {
     return data.length === 10;
   };
 
+  const variants = {
+    show: {
+      transition: { staggerChildren: 0.07 }
+    },
+    hidden: {
+      transition: { staggerChildren: 0.05, staggerDirection: -1 }
+    }
+  };
+
   return (
-    <VStack w="100%" spacing={3}>
+    <VStack
+      as={motion.div}
+      w="100%"
+      animate="show"
+      initial="hidden"
+      spacing={3}
+      variants={variants}
+    >
       {messages.concat(extraMessages).map(data => (
         <Message key={data.id} linked {...data} />
       ))}

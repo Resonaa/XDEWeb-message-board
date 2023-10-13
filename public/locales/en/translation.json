@@ -19,7 +19,8 @@
     "view_one": "view",
     "view_other": "views",
     "load-more": "Show More...",
-    "placeholder": "Enter message content, Markdown supported"
+    "placeholder": "Enter message content, Markdown supported",
+    "nothing-to-preview": "Nothing to preview"
   },
   "utils": {
     "plurals_one": "",
