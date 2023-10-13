@@ -45,7 +45,7 @@ export default function LocaleSelect() {
               <chakra.span pl="3px">{t("lang." + i18n.language)}</chakra.span>
             </Flex>
           </MenuButton>
-          <MenuList>
+          <MenuList shadow="md">
             {i18nConfig.supportedLngs.map(language => (
               <MenuItem
                 key={language}

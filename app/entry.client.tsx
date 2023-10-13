@@ -24,7 +24,7 @@ i18next
       backends: [LocalStorageBackend, HttpBackend],
       backendOptions: [
         {
-          expirationTime: 1000 * 60 * 60 * 24
+          expirationTime: 1000 * 60
         },
         {
           loadPath: "/locales/{{lng}}/{{ns}}.json"

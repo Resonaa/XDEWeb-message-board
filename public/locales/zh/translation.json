@@ -19,7 +19,7 @@
     "view_one": "浏览",
     "view_other": "浏览",
     "load-more": "点击查看更多...",
-    "placeholder": "输入留言内容，支持 Markdown 与 LaTeX 公式"
+    "placeholder": "输入留言内容，支持 Markdown 语法"
   },
   "utils": {
     "plurals_one": "",

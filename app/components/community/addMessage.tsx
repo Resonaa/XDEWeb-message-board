@@ -18,7 +18,7 @@ export default function AddMessage() {
   }, [fetcher.state]);
 
   return (
-    <fetcher.Form method="post" style={{ width: "100%" }}>
+    <fetcher.Form method="post" action="/?index" style={{ width: "100%" }}>
       <Editor value={value} setValue={setValue} mt="-4px" />
       <Button
         colorScheme="blue"

@@ -9,7 +9,7 @@ import {
   useColorModePreference,
   useColorModeValue
 } from "@chakra-ui/react";
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
+import type { LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
   isRouteErrorResponse,
@@ -23,7 +23,6 @@ import {
 } from "@remix-run/react";
 import githubDark from "highlight.js/styles/github-dark.css";
 import github from "highlight.js/styles/github.css";
-import katex from "katex/dist/katex.min.css";
 import type { ReactNode } from "react";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
@@ -32,8 +31,6 @@ import Layout from "~/components/layout/layout";
 import { useNProgress } from "~/hooks";
 import { getLocale } from "~/i18next.server";
 import theme from "~/theme";
-
-export const links: LinksFunction = () => [{ rel: "stylesheet", href: katex }];
 
 export async function loader({ request }: LoaderFunctionArgs) {
   return json({

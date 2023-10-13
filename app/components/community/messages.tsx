@@ -31,7 +31,7 @@ export default function Messages({ messages }: { messages: MessageProps[] }) {
   };
 
   return (
-    <VStack w="100%" spacing={4}>
+    <VStack w="100%" spacing={3}>
       {messages.concat(extraMessages).map(data => (
         <Message key={data.id} linked {...data} />
       ))}

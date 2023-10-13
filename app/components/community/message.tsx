@@ -1,4 +1,4 @@
-import { Box, chakra, Flex, Tooltip, VStack } from "@chakra-ui/react";
+import { chakra, Flex, Tooltip, VStack } from "@chakra-ui/react";
 import { Link } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
 
@@ -31,22 +31,15 @@ export default function Message({
   const { t } = useTranslation();
 
   return (
-    <VStack align="normal" w="100%" spacing={2}>
-      <Flex>
-        <Flex align="center" wrap="wrap" flex={1} gap={3}>
-          <Box>
-            <Box color="gray.400" fontSize="sm">
-              <Tooltip label={formatDate(createdAt)} openDelay={500}>
-                {relativeDate(createdAt)}
-              </Tooltip>
-              <span>
-                {" "}
-                · {formatLargeNumber(viewCount)}{" "}
-                {t("community.view", { count: viewCount })}
-              </span>
-            </Box>
-          </Box>
-        </Flex>
+    <VStack align="normal" w="100%" spacing="6px">
+      <Flex color="gray.400" fontSize="sm">
+        <Tooltip label={formatDate(createdAt)} openDelay={500}>
+          {relativeDate(createdAt)}
+        </Tooltip>
+        <span>
+          &nbsp;· {formatLargeNumber(viewCount)}&nbsp;
+          {t("community.view", { count: viewCount })}
+        </span>
       </Flex>
 
       {linked ? (

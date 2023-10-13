@@ -46,7 +46,6 @@
     "i18next-http-backend": "latest",
     "i18next-localstorage-backend": "latest",
     "isbot": "latest",
-    "katex": "latest",
     "nprogress": "latest",
     "react": "latest",
     "react-dom": "latest",
@@ -55,9 +54,7 @@
     "react-markdown": "latest",
     "react-textarea-autosize": "latest",
     "rehype-highlight": "latest",
-    "rehype-katex": "latest",
     "remark-gfm": "latest",
-    "remark-math": "latest",
     "remix-i18next": "latest",
     "typescript": "latest",
     "zod": "latest"

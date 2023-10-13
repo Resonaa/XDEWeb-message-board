@@ -38,7 +38,7 @@ export default function Navbar() {
             pl={useBreakpointValue({ base: 3, md: 0 })}
             color={useColorModeValue("gray.800", "white")}
             fontFamily="heading"
-            fontSize="xl"
+            fontSize="lg"
             fontWeight={600}
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             to="/"

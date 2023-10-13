@@ -19,7 +19,7 @@
     "view_one": "view",
     "view_other": "views",
     "load-more": "Show More...",
-    "placeholder": "Enter message content, Markdown & KaTeX supported"
+    "placeholder": "Enter message content, Markdown supported"
   },
   "utils": {
     "plurals_one": "",
