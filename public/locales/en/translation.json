@@ -3,7 +3,8 @@
     "zh": "中文",
     "en": "English"
   },
-  "title": "XDEWeb Message Board",
+  "title": "XDE Message Board",
+  "back": "Back to main site",
   "community": {
     "edit": "Edit",
     "preview": "Preview",
@@ -20,7 +21,9 @@
     "view_other": "views",
     "load-more": "Show More...",
     "placeholder": "Enter message content, Markdown supported",
-    "nothing-to-preview": "Nothing to preview"
+    "nothing-to-preview": "Nothing to preview",
+    "post-success": "Message submitted",
+    "post-error": "Failed to submit"
   },
   "utils": {
     "plurals_one": "",

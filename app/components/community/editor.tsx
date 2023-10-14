@@ -1,10 +1,12 @@
 import {
   Tab,
+  TabIndicator,
   TabList,
   TabPanel,
   TabPanels,
   Tabs,
-  Textarea
+  Textarea,
+  useColorModeValue
 } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { ReactNode } from "react";
@@ -43,9 +45,20 @@ export default function Editor<T extends EditorProps>({
   return (
     <Tabs w="100%" isLazy {...props}>
       <TabList border="none">
-        <Tab transitionDuration=".3s">{t("community.edit")}</Tab>
-        <Tab transitionDuration=".3s">{t("community.preview")}</Tab>
+        <Tab border="none" transitionDuration=".3s">
+          {t("community.edit")}
+        </Tab>
+        <Tab border="none" transitionDuration=".3s">
+          {t("community.preview")}
+        </Tab>
       </TabList>
+
+      <TabIndicator
+        h="2px"
+        bg={useColorModeValue("blue.600", "blue.300")}
+        borderRadius="1px"
+        transitionDuration=".2s !important"
+      />
 
       <TabPanels>
         <TabPanel px={0}>
@@ -53,7 +66,7 @@ export default function Editor<T extends EditorProps>({
             <Textarea
               as={TextareaAutosize}
               minH="4rem"
-              maxH="16rem"
+              maxH="14rem"
               resize="none"
               name="content"
               onChange={e => setValue(e.target.value)}

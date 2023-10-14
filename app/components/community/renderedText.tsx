@@ -17,7 +17,7 @@ export default function RenderedText<T extends RenderedTextProps>({
 }: T) {
   const { t } = useTranslation();
 
-  return content.length > 0 ? (
+  return content.trim().length > 0 ? (
     <ReactMarkdown
       components={renderer}
       remarkPlugins={[remarkGfm]}
@@ -27,6 +27,6 @@ export default function RenderedText<T extends RenderedTextProps>({
       {...props}
     />
   ) : (
-    <Text>{t("community.nothing-to-preview")}</Text>
+    <Text color="gray.500">{t("community.nothing-to-preview")}</Text>
   );
 }

@@ -36,9 +36,11 @@ export async function action({ request }: ActionFunctionArgs) {
     const { content } = res.data;
 
     await createMessage(content);
+
+    return json(true);
   }
 
-  return null;
+  return json(false);
 }
 
 export default function Index() {

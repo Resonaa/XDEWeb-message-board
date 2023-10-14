@@ -8,6 +8,8 @@ import {
   useColorModeValue
 } from "@chakra-ui/react";
 import type { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
+import { FaHome } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 
 function SocialButton({
@@ -32,9 +34,9 @@ function SocialButton({
         display="inline-flex"
         alignItems="center"
         justifyContent="center"
-        transition="background 0.3s ease"
+        transition="background .3s ease"
         _hover={{
-          bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200")
+          bg: useColorModeValue("blackAlpha.300", "whiteAlpha.300")
         }}
       >
         {children}
@@ -44,6 +46,8 @@ function SocialButton({
 }
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <Box
       pos="absolute"
@@ -61,9 +65,13 @@ export default function Footer() {
         py={4}
         spacing={4}
       >
-        <Text>Copyright © 2023 XDEWeb</Text>
+        <Text>Copyright © 2023 XDE Web</Text>
 
         <Stack direction="row" spacing={6}>
+          <SocialButton label={t("back")} href="#">
+            <FaHome />
+          </SocialButton>
+
           <SocialButton
             label="GitHub"
             href="https://github.com/jwcub/XDEWeb-message-board"

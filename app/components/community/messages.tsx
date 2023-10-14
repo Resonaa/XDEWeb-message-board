@@ -9,7 +9,7 @@ import Message from "./message";
 async function ajax(
   method: string,
   url: string,
-  data: Record<string, number | string | boolean | undefined | null> = {}
+  data: Record<string, any> = {}
 ) {
   const body = new FormData();
 
@@ -17,7 +17,7 @@ async function ajax(
     body.append(key, String(data[key]));
   }
 
-  const options = { method: method, body };
+  const options = { method, body };
 
   return await (await fetch(url, options)).json();
 }

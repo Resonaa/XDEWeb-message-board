@@ -1,7 +1,7 @@
 import type { Params } from "@remix-run/react";
 import { z } from "zod";
 
-import { safeParseAndFlatten } from "./utils.server";
+import { toObject } from "./utils.server";
 
 const idSchema = z.coerce.number().int().finite().safe().min(1);
 
@@ -28,13 +28,13 @@ const getMessagePageSchema = z
   .strict();
 
 export function validateAddMessageFormData(data: FormData) {
-  return safeParseAndFlatten(addMessageSchema, data);
+  return addMessageSchema.safeParse(toObject(data));
 }
 
 export function validateGetMessageParams(params: Params) {
-  return safeParseAndFlatten(getMessageSchema, params);
+  return getMessageSchema.safeParse(toObject(params));
 }
 
 export function validateGetMessagePageFormData(data: FormData) {
-  return safeParseAndFlatten(getMessagePageSchema, data);
+  return getMessagePageSchema.safeParse(toObject(data));
 }

@@ -53,7 +53,7 @@ export default function Message({
       as={motion.div}
       align="normal"
       w="100%"
-      spacing="6px"
+      spacing={1}
       variants={variants}
     >
       <Flex color="gray.400" fontSize="sm">

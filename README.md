@@ -1,4 +1,4 @@
-# XDEWeb Message Board
+# XDE Web Message Board
 
 ## Development
 
