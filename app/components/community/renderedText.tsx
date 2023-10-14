@@ -22,7 +22,6 @@ export default function RenderedText<T extends RenderedTextProps>({
       components={renderer}
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[[rehypeHighlight, { ignoreMissing: true }]]}
-      skipHtml
       children={content}
       {...props}
     />
