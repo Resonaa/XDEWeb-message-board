@@ -25,10 +25,11 @@ export default function Navbar() {
       top={0}
       w="100%"
       color={useColorModeValue("gray.600", "white")}
-      bg={useColorModeValue("white", "gray.800")}
-      borderStyle="solid"
-      borderColor={useColorModeValue("gray.200", "gray.900")}
-      borderBottom={1}
+      bg={useColorModeValue("whiteAlpha.800", "rgba(26, 32, 44, .8)")}
+      borderBottomWidth="1px"
+      borderBottomStyle="solid"
+      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      backdropFilter="blur(5px)"
     >
       <Flex align="center" maxW="6xl" mx="auto" px={4} py={2}>
         <Flex align="center" justify="start" flex={1}>
