@@ -69,13 +69,12 @@ export default function Message({
       {linked ? (
         <chakra.a as={Link} to={messageUrl} maxH="200px" overflowY="auto">
           <object>
+            <span />
             <RenderedText content={content} />
           </object>
         </chakra.a>
       ) : (
-        <object>
-          <RenderedText content={content} />
-        </object>
+        <RenderedText content={content} />
       )}
     </VStack>
   );
