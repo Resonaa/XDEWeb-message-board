@@ -18,6 +18,13 @@ const app = fastify({
   logger: { transport: { target: "@fastify/one-line-logger" } }
 });
 
+const noopContentParser = (_, payload, done) => {
+  done(null, payload);
+};
+
+app.addContentTypeParser("application/json", noopContentParser);
+app.addContentTypeParser("*", noopContentParser);
+
 if (env.NODE_ENV === "development") {
   await app.register(fastifyCompress);
 }
