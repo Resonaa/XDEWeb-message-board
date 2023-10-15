@@ -68,7 +68,7 @@ export default function Footer() {
         <Text>Copyright © 2023 XDE Web</Text>
 
         <Stack direction="row" spacing={6}>
-          <SocialButton label={t("back")} href="#">
+          <SocialButton label={t("back")} href="https://www.kjzxxyq.top">
             <FaHome />
           </SocialButton>
 
