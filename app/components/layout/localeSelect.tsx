@@ -1,4 +1,4 @@
-import { ChevronDownIcon } from "@chakra-ui/icons";
+import { CheckIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import {
   Button,
   chakra,
@@ -49,12 +49,20 @@ export default function LocaleSelect() {
             {i18nConfig.supportedLngs.map(language => (
               <MenuItem
                 key={language}
-                onClick={async () => {
-                  await i18n.changeLanguage(language);
-                  navigate(location.pathname);
-                }}
+                justifyContent="space-between"
+                fontWeight={i18n.language === language ? "bold" : "normal"}
+                transition="background .15s ease"
+                onClick={
+                  i18n.language === language
+                    ? undefined
+                    : () =>
+                        i18n.changeLanguage(language, () =>
+                          navigate(location.pathname)
+                        )
+                }
               >
                 {t("lang." + language)}
+                {i18n.language === language && <CheckIcon />}
               </MenuItem>
             ))}
           </MenuList>
