@@ -9,7 +9,6 @@ import {
   MenuItem,
   MenuList
 } from "@chakra-ui/react";
-import { useLocation, useNavigate } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
 import { HiMiniLanguage } from "react-icons/hi2";
 
@@ -27,8 +26,6 @@ function DropdownRightIcon({ isOpen }: { isOpen: boolean }) {
 
 export default function LocaleSelect() {
   const { i18n, t } = useTranslation();
-  const navigate = useNavigate();
-  const location = useLocation();
 
   return (
     <Menu autoSelect={false}>
@@ -38,7 +35,6 @@ export default function LocaleSelect() {
             as={Button}
             rightIcon={<DropdownRightIcon isOpen={isOpen} />}
             rounded="full"
-            variant="ghost"
           >
             <Flex align="center" h="100%">
               <HiMiniLanguage />
@@ -52,14 +48,7 @@ export default function LocaleSelect() {
                 justifyContent="space-between"
                 fontWeight={i18n.language === language ? "bold" : "normal"}
                 transition="background .15s ease"
-                onClick={
-                  i18n.language === language
-                    ? undefined
-                    : () =>
-                        i18n.changeLanguage(language, () =>
-                          navigate(location.pathname)
-                        )
-                }
+                onClick={() => i18n.changeLanguage(language)}
               >
                 {t("lang." + language)}
                 {i18n.language === language && <CheckIcon />}

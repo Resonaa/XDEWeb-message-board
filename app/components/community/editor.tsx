@@ -42,15 +42,23 @@ export default function Editor<T extends EditorProps>({
 }: T) {
   const { t } = useTranslation();
 
+  const tabs = [t("community.edit"), t("community.preview")];
+
+  const tabHoverColor = useColorModeValue("blue.700", "blue.200");
+
   return (
     <Tabs w="100%" isLazy {...props}>
       <TabList border="none">
-        <Tab border="none" transitionDuration=".3s">
-          {t("community.edit")}
-        </Tab>
-        <Tab border="none" transitionDuration=".3s">
-          {t("community.preview")}
-        </Tab>
+        {tabs.map(tab => (
+          <Tab
+            key={tab}
+            border="none"
+            _hover={{ color: tabHoverColor }}
+            transitionDuration=".3s"
+          >
+            {tab}
+          </Tab>
+        ))}
       </TabList>
 
       <TabIndicator

@@ -5,7 +5,6 @@ import {
   Flex,
   IconButton,
   Link,
-  useBreakpointValue,
   useColorMode,
   useColorModeValue
 } from "@chakra-ui/react";
@@ -15,7 +14,7 @@ import { useTranslation } from "react-i18next";
 import LocaleSelect from "./localeSelect";
 
 export default function Navbar() {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { toggleColorMode } = useColorMode();
   const { t } = useTranslation();
 
   return (
@@ -24,7 +23,6 @@ export default function Navbar() {
       zIndex={161}
       top={0}
       w="100%"
-      color={useColorModeValue("gray.600", "white")}
       bg={useColorModeValue("whiteAlpha.800", "rgba(26, 32, 44, .8)")}
       borderBottomWidth="1px"
       borderBottomStyle="solid"
@@ -35,26 +33,22 @@ export default function Navbar() {
         <Flex align="center" justify="start" flex={1}>
           <Link
             as={ReactLink}
-            display="block"
-            pl={useBreakpointValue({ base: 3, md: 0 })}
-            color={useColorModeValue("gray.800", "white")}
+            pl={{ base: 3, md: 0 }}
             fontFamily="heading"
             fontSize="lg"
             fontWeight={600}
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
             to="/"
           >
             {t("title")}
           </Link>
         </Flex>
 
-        <ButtonGroup size="md" spacing={3}>
+        <ButtonGroup spacing={3} variant="ghost">
           <IconButton
             aria-label="Toggle ColorMode"
-            icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+            icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
             isRound
             onClick={toggleColorMode}
-            variant="ghost"
           />
           <LocaleSelect />
         </ButtonGroup>
