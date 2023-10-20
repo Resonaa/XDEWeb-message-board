@@ -1,13 +1,7 @@
+import { ButtonGroup, IconButton } from "@chakra-ui/button";
+import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import {
-  Box,
-  ButtonGroup,
-  Flex,
-  IconButton,
-  Link,
-  useColorMode,
-  useColorModeValue
-} from "@chakra-ui/react";
+import { Box, Flex, Link } from "@chakra-ui/layout";
 import { Link as ReactLink } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
 
@@ -27,7 +21,7 @@ export default function Navbar() {
       borderBottomWidth="1px"
       borderBottomStyle="solid"
       borderBottomColor={useColorModeValue("gray.200", "gray.700")}
-      backdropFilter="blur(5px)"
+      backdropFilter="blur(14px)"
     >
       <Flex align="center" maxW="6xl" mx="auto" px={4} py={2}>
         <Flex align="center" justify="start" flex={1}>

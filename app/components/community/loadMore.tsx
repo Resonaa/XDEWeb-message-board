@@ -1,4 +1,6 @@
-import { Center, Spinner, useColorModeValue } from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/color-mode";
+import { Center } from "@chakra-ui/layout";
+import { Spinner } from "@chakra-ui/spinner";
 import nProgress from "nprogress";
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";

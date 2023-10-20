@@ -1,14 +1,9 @@
+import { Button } from "@chakra-ui/button";
+import { Icon } from "@chakra-ui/icon";
 import { CheckIcon, ChevronDownIcon } from "@chakra-ui/icons";
-import {
-  Button,
-  chakra,
-  Flex,
-  Icon,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList
-} from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/layout";
+import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
+import { chakra } from "@chakra-ui/system";
 import { useTranslation } from "react-i18next";
 import { HiMiniLanguage } from "react-icons/hi2";
 

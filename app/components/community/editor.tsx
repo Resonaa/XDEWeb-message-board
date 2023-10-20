@@ -1,13 +1,13 @@
+import { useColorModeValue } from "@chakra-ui/color-mode";
 import {
   Tab,
   TabIndicator,
   TabList,
   TabPanel,
   TabPanels,
-  Tabs,
-  Textarea,
-  useColorModeValue
-} from "@chakra-ui/react";
+  Tabs
+} from "@chakra-ui/tabs";
+import { Textarea } from "@chakra-ui/textarea";
 import { AnimatePresence, motion } from "framer-motion";
 import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";

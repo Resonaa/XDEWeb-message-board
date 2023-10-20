@@ -1,12 +1,7 @@
-import {
-  Box,
-  chakra,
-  Container,
-  Stack,
-  Text,
-  Tooltip,
-  useColorModeValue
-} from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/color-mode";
+import { Box, Container, Stack, Text } from "@chakra-ui/layout";
+import { chakra } from "@chakra-ui/system";
+import { Tooltip } from "@chakra-ui/tooltip";
 import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { FaHome } from "react-icons/fa";

@@ -1,14 +1,10 @@
 // noinspection HtmlRequiredTitleElement
 
-import {
-  Center,
-  chakra,
-  ChakraProvider,
-  cookieStorageManagerSSR,
-  Heading,
-  useColorModePreference,
-  useColorModeValue
-} from "@chakra-ui/react";
+import { cookieStorageManagerSSR } from "@chakra-ui/color-mode";
+import { Center, Heading } from "@chakra-ui/layout";
+import { useColorModePreference } from "@chakra-ui/media-query";
+import { ChakraProvider } from "@chakra-ui/provider";
+import { chakra } from "@chakra-ui/system";
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
@@ -21,8 +17,6 @@ import {
   useLoaderData,
   useRouteError
 } from "@remix-run/react";
-import githubDark from "highlight.js/styles/github-dark.css";
-import github from "highlight.js/styles/github.css";
 import type { ReactNode } from "react";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
@@ -47,10 +41,6 @@ export function getKeyFromCookies(
   key: string
 ) {
   return cookies?.match(new RegExp(`(^| )${key}=([^;]+)`))?.at(2);
-}
-
-function HighlightLink() {
-  return <link rel="stylesheet" href={useColorModeValue(github, githubDark)} />;
 }
 
 function Document({
@@ -115,7 +105,6 @@ function Document({
           theme={theme}
         >
           {children}
-          <HighlightLink />
         </ChakraProvider>
         <ScrollRestoration />
         <Scripts />

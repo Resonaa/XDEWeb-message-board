@@ -1,4 +1,6 @@
-import { chakra, Flex, Tooltip, VStack } from "@chakra-ui/react";
+import { Flex, VStack } from "@chakra-ui/layout";
+import { chakra } from "@chakra-ui/system";
+import { Tooltip } from "@chakra-ui/tooltip";
 import { Link } from "@remix-run/react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";

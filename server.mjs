@@ -1,12 +1,6 @@
-import fastifyEarlyHints from "@fastify/early-hints";
 import { env } from "node:process";
-import {
-  createRequestHandler,
-  getEarlyHintLinks,
-  staticFilePlugin
-} from "@mcansh/remix-fastify";
+import { createRequestHandler, staticFilePlugin } from "@mcansh/remix-fastify";
 import { broadcastDevReady } from "@remix-run/node";
-import fastifyCompress from "@fastify/compress";
 import fastify from "fastify";
 
 const BUILD_PATH = "./build/index.js";
@@ -25,21 +19,12 @@ const noopContentParser = (_, payload, done) => {
 app.addContentTypeParser("application/json", noopContentParser);
 app.addContentTypeParser("*", noopContentParser);
 
-if (env.NODE_ENV === "development") {
-  await app.register(fastifyCompress);
-}
-
 await app
-  .register(fastifyEarlyHints, { warn: true })
   .register(staticFilePlugin, {
     assetsBuildDirectory: "public/build",
     publicPath: "/build/"
   })
-  .all("*", async (request, reply) => {
-    const links = getEarlyHintLinks(request, build);
-    await reply.writeEarlyHintsLinks(links);
-    return createRequestHandler({ build, mode: build.mode })(request, reply);
-  })
+  .all("*", createRequestHandler({ build, mode: build.mode }))
   .listen({ port: PORT });
 
 if (env.NODE_ENV === "development") {

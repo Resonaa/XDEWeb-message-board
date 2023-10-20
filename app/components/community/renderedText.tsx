@@ -1,8 +1,7 @@
-import { Text } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/layout";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import { useTranslation } from "react-i18next";
 import ReactMarkdown from "react-markdown";
-import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 
 const renderer = ChakraUIRenderer();
@@ -21,7 +20,6 @@ export default function RenderedText<T extends RenderedTextProps>({
     <ReactMarkdown
       components={renderer}
       remarkPlugins={[remarkGfm]}
-      rehypePlugins={[[rehypeHighlight, { ignoreMissing: true }]]}
       children={content}
       {...props}
     />
