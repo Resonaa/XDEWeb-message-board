@@ -5,7 +5,7 @@ import { Center, Heading } from "@chakra-ui/layout";
 import { useColorModePreference } from "@chakra-ui/media-query";
 import { ChakraProvider } from "@chakra-ui/provider";
 import { chakra } from "@chakra-ui/system";
-import type { LoaderFunctionArgs } from "@remix-run/node";
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
   isRouteErrorResponse,
@@ -23,16 +23,23 @@ import { useTranslation } from "react-i18next";
 
 import Layout from "~/components/layout/layout";
 import { useNProgress } from "~/hooks";
-import { getLocale } from "~/i18next.server";
+import { getT } from "~/i18next.server";
 import theme from "~/theme";
 
 export async function loader({ request }: LoaderFunctionArgs) {
+  const { t, locale } = await getT(request);
+
   return json({
     time: Date.now(),
     cookies: request.headers.get("Cookie") ?? "",
-    locale: await getLocale(request)
+    locale,
+    title: t("title")
   });
 }
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => [
+  { title: data?.title }
+];
 
 const COLOR_MODE_KEY = "chakra-ui-color-mode";
 
@@ -151,7 +158,9 @@ export function ErrorBoundary() {
 export default function App() {
   return (
     <Document>
-      <Outlet />
+      <Layout>
+        <Outlet />
+      </Layout>
     </Document>
   );
 }

@@ -31,5 +31,6 @@ export async function getLocale(request: Request) {
 }
 
 export async function getT(request: Request) {
-  return await i18next.getFixedT(await getLocale(request));
+  const locale = await getLocale(request);
+  return { t: await i18next.getFixedT(locale), locale };
 }

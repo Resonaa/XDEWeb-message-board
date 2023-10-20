@@ -14,9 +14,8 @@ export async function action({ request }: ActionFunctionArgs) {
   const res = validateGetMessagePageFormData(data);
 
   if (res.success) {
-    const { page } = res.data;
-    return json(await getMessages(page));
+    return json(await getMessages(res.data.page));
   }
 
-  return badRequest();
+  return badRequest;
 }
