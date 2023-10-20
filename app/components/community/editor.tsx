@@ -8,38 +8,18 @@ import {
   Tabs
 } from "@chakra-ui/tabs";
 import { Textarea } from "@chakra-ui/textarea";
-import { AnimatePresence, motion } from "framer-motion";
-import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import TextareaAutosize from "react-textarea-autosize";
 
 import RenderedText from "./renderedText";
 
-interface EditorProps {
+export default function Editor({
+  value,
+  setValue
+}: {
   value: string;
   setValue: (value: string) => void;
-}
-
-function AnimatedContent({ children }: { children: ReactNode }) {
-  return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.2 }}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
-  );
-}
-
-export default function Editor<T extends EditorProps>({
-  value,
-  setValue,
-  ...props
-}: T) {
+}) {
   const { t } = useTranslation();
 
   const tabs = [t("community.edit"), t("community.preview")];
@@ -47,7 +27,7 @@ export default function Editor<T extends EditorProps>({
   const tabHoverColor = useColorModeValue("blue.700", "blue.200");
 
   return (
-    <Tabs w="100%" isLazy {...props}>
+    <Tabs w="100%" mt="-4px">
       <TabList border="none">
         {tabs.map(tab => (
           <Tab
@@ -70,25 +50,21 @@ export default function Editor<T extends EditorProps>({
 
       <TabPanels>
         <TabPanel px={0}>
-          <AnimatedContent>
-            <Textarea
-              as={TextareaAutosize}
-              minH="4rem"
-              maxH="14rem"
-              resize="none"
-              name="content"
-              onChange={e => setValue(e.target.value)}
-              placeholder={t("community.placeholder")}
-              required
-              value={value}
-              variant="filled"
-            />
-          </AnimatedContent>
+          <Textarea
+            as={TextareaAutosize}
+            minH="4rem"
+            maxH="14rem"
+            resize="none"
+            name="content"
+            onChange={e => setValue(e.target.value)}
+            placeholder={t("community.placeholder")}
+            value={value}
+            variant="filled"
+          />
         </TabPanel>
+
         <TabPanel px={0}>
-          <AnimatedContent>
-            <RenderedText content={value} />
-          </AnimatedContent>
+          <RenderedText content={value} />
         </TabPanel>
       </TabPanels>
     </Tabs>

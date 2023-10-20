@@ -1,16 +1,30 @@
-import { ButtonGroup, IconButton } from "@chakra-ui/button";
-import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { ButtonGroup } from "@chakra-ui/button";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box, Flex, Link } from "@chakra-ui/layout";
 import { Link as ReactLink } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
 
+import ColorModeToggle from "./colorModeToggle";
 import LocaleSelect from "./localeSelect";
 
-export default function Navbar() {
-  const { toggleColorMode } = useColorMode();
+function Title() {
   const { t } = useTranslation();
 
+  return (
+    <Link
+      as={ReactLink}
+      pl={{ base: 3, md: 0 }}
+      fontFamily="heading"
+      fontSize="lg"
+      fontWeight={600}
+      to="/"
+    >
+      {t("title")}
+    </Link>
+  );
+}
+
+export default function Navbar() {
   return (
     <Box
       pos="fixed"
@@ -25,25 +39,11 @@ export default function Navbar() {
     >
       <Flex align="center" maxW="6xl" mx="auto" px={4} py={2}>
         <Flex align="center" justify="start" flex={1}>
-          <Link
-            as={ReactLink}
-            pl={{ base: 3, md: 0 }}
-            fontFamily="heading"
-            fontSize="lg"
-            fontWeight={600}
-            to="/"
-          >
-            {t("title")}
-          </Link>
+          <Title />
         </Flex>
 
         <ButtonGroup spacing={3} variant="ghost">
-          <IconButton
-            aria-label="Toggle ColorMode"
-            icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
-            isRound
-            onClick={toggleColorMode}
-          />
+          <ColorModeToggle />
           <LocaleSelect />
         </ButtonGroup>
       </Flex>

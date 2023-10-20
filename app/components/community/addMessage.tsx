@@ -19,11 +19,13 @@ export default function AddMessage() {
 
   return (
     <fetcher.Form method="post" action="/?index" style={{ width: "100%" }}>
-      <Editor value={value} setValue={setValue} mt="-4px" />
+      <Editor value={value} setValue={setValue} />
       <Button
         colorScheme="blue"
         isLoading={fetcher.state !== "idle"}
+        isDisabled={value.trim().length === 0}
         leftIcon={<BsFillSendFill />}
+        float="right"
         type="submit"
       >
         {t("community.add-message")}

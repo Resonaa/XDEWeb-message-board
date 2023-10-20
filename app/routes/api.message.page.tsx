@@ -15,7 +15,6 @@ export async function action({ request }: ActionFunctionArgs) {
 
   if (res.success) {
     const { page } = res.data;
-
     return json(await getMessages(page));
   }
 

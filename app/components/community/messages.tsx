@@ -6,11 +6,7 @@ import LoadMore from "./loadMore";
 import type { MessageProps } from "./message";
 import Message from "./message";
 
-async function ajax(
-  method: string,
-  url: string,
-  data: Record<string, any> = {}
-) {
+async function ajax(method: string, url: string, data: Record<string, any>) {
   const body = new FormData();
 
   for (const key in data) {
@@ -46,7 +42,7 @@ export default function Messages({ messages }: { messages: MessageProps[] }) {
       w="100%"
       animate="show"
       initial="hidden"
-      spacing={3}
+      spacing={2}
       variants={variants}
     >
       {messages.concat(extraMessages).map(data => (

@@ -34,13 +34,10 @@ export async function action({ request }: ActionFunctionArgs) {
 
   if (res.success) {
     const { content } = res.data;
-
     await createMessage(content);
-
-    return json(true);
   }
 
-  return json(false);
+  return null;
 }
 
 export default function Index() {
