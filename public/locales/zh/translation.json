@@ -20,10 +20,8 @@
     "view_one": "浏览",
     "view_other": "浏览",
     "load-more": "点击查看更多",
-    "placeholder": "输入留言内容，支持 Markdown 语法",
-    "nothing-to-preview": "预览内容为空",
-    "post-success": "留言成功",
-    "post-error": "留言失败"
+    "placeholder": "支持 Markdown 语法",
+    "nothing-to-preview": "预览内容为空"
   },
   "utils": {
     "plurals_one": "",

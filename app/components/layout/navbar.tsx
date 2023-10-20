@@ -1,7 +1,7 @@
 import { ButtonGroup } from "@chakra-ui/button";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box, Flex, Link } from "@chakra-ui/layout";
-import { Link as ReactLink } from "@remix-run/react";
+import { Link as RemixLink } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
 
 import ColorModeToggle from "./colorModeToggle";
@@ -12,8 +12,9 @@ function Title() {
 
   return (
     <Link
-      as={ReactLink}
-      pl={{ base: 3, md: 0 }}
+      as={RemixLink}
+      pl={{ base: 3, lg: 0 }}
+      textAlign="center"
       fontFamily="heading"
       fontSize="lg"
       fontWeight={600}

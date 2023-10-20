@@ -3,12 +3,12 @@
     "zh": "中文",
     "en": "English"
   },
-  "title": "XDE Message Board",
+  "title": "XDE Messages",
   "back": "Back to main site",
   "community": {
     "edit": "Edit",
     "preview": "Preview",
-    "add-message": "Leave a Message",
+    "add-message": "Submit",
     "close": "Close",
     "second": "second",
     "minute": "minute",
@@ -20,10 +20,8 @@
     "view_one": "view",
     "view_other": "views",
     "load-more": "Show More",
-    "placeholder": "Enter message content, Markdown supported",
-    "nothing-to-preview": "Nothing to preview",
-    "post-success": "Message submitted",
-    "post-error": "Failed to submit"
+    "placeholder": "Markdown syntax supported",
+    "nothing-to-preview": "Nothing to preview"
   },
   "utils": {
     "plurals_one": "",
